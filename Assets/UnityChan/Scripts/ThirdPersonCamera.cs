@@ -9,10 +9,10 @@ using System.Collections;
 
 public class ThirdPersonCamera : MonoBehaviour
 {
-	public float smooth = 3f;		// カメラモーションのスムーズ化用変数
-	Transform standardPos;			// the usual position for the camera, specified by a transform in the game
-	Transform frontPos;			// Front Camera locater
-	Transform jumpPos;			// Jump Camera locater
+	public float smooth = 3f;       // カメラモーションのスムーズ化用変数
+    public Transform standardPos;           // the usual position for the camera, specified by a transform in the game
+    public Transform frontPos;          // Front Camera locater
+    public Transform jumpPos;			// Jump Camera locater
 	
 	// スムーズに繋がない時（クイック切り替え）用のブーリアンフラグ
 	bool bQuickSwitch = false;	//Change Camera Position Quickly
@@ -20,18 +20,10 @@ public class ThirdPersonCamera : MonoBehaviour
 	
 	void Start()
 	{
-		// 各参照の初期化
-		standardPos = GameObject.Find ("CamPos").transform;
-		
-		if(GameObject.Find ("FrontPos"))
-			frontPos = GameObject.Find ("FrontPos").transform;
-
-		if(GameObject.Find ("JumpPos"))
-			jumpPos = GameObject.Find ("JumpPos").transform;
 
 		//カメラをスタートする
-			transform.position = standardPos.position;	
-			transform.forward = standardPos.forward;	
+	    transform.position = standardPos.position;	
+	    transform.forward = standardPos.forward;	
 	}
 
 	
