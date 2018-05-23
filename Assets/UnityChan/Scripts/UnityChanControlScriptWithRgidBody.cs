@@ -51,6 +51,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 	static int jumpState = Animator.StringToHash("Base Layer.Jump");
 	static int restState = Animator.StringToHash("Base Layer.Rest");
     static int pickState = Animator.StringToHash("Base Layer.Pick");
+    static int getState = Animator.StringToHash("Base Layer.Get");
 
 
     // 初期化
@@ -112,7 +113,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
             var box = transform.Find("FrontCollider").GetComponent<FrontColliderScript>().TresureBox;
             if (box != null)
             {
-                box.GetComponent<TresureBoxController>().OpenBox();
+                box.GetComponent<TresureBoxController>().OpenBox(anim);
             }
         }
 
@@ -203,6 +204,13 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
             if (!anim.IsInTransition(0))
             {
                 anim.SetBool("Pick", false);
+            }
+        }
+        else if (currentBaseState.nameHash == getState)
+        {
+            if (!anim.IsInTransition(0))
+            {
+                anim.SetBool("Get", false);
             }
         }
     }
