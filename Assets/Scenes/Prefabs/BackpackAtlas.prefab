@@ -55,7 +55,7 @@ MonoBehaviour:
   mSprites:
   - name: BackpackIcon
     x: 0
-    y: 22
+    y: 790
     width: 247
     height: 234
     borderLeft: 0
@@ -66,6 +66,136 @@ MonoBehaviour:
     paddingRight: 4
     paddingTop: 11
     paddingBottom: 11
+  - name: BackpackUI1
+    x: 209
+    y: 548
+    width: 90
+    height: 90
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 0
+    paddingRight: 0
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\u88C5\u59071"
+    x: 258
+    y: 639
+    width: 109
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 20
+    paddingRight: 21
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\u88C5\u59072"
+    x: 107
+    y: 491
+    width: 101
+    height: 147
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 23
+    paddingRight: 26
+    paddingTop: 3
+    paddingBottom: 0
+  - name: "\u88C5\u59073"
+    x: 0
+    y: 338
+    width: 99
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 27
+    paddingRight: 24
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\u88C5\u59074"
+    x: 131
+    y: 639
+    width: 126
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 12
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\u88C5\u59075"
+    x: 248
+    y: 874
+    width: 135
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 10
+    paddingRight: 5
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\u88C5\u59076"
+    x: 0
+    y: 489
+    width: 106
+    height: 149
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 26
+    paddingRight: 18
+    paddingTop: 1
+    paddingBottom: 0
+  - name: "\u88C5\u59077"
+    x: 0
+    y: 639
+    width: 130
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 25
+    paddingRight: 22
+    paddingTop: 12
+    paddingBottom: 15
+  - name: "\u88C5\u59078"
+    x: 368
+    y: 639
+    width: 106
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 21
+    paddingRight: 23
+    paddingTop: 0
+    paddingBottom: 0
+  - name: "\u88C5\u59079"
+    x: 384
+    y: 874
+    width: 127
+    height: 150
+    borderLeft: 0
+    borderRight: 0
+    borderTop: 0
+    borderBottom: 0
+    paddingLeft: 12
+    paddingRight: 11
+    paddingTop: 0
+    paddingBottom: 0
   mPixelSize: 1
   mReplacement: {fileID: 0}
   mCoordinates: 0
