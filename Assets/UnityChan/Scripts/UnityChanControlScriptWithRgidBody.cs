@@ -107,7 +107,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 			}
 		}
 
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && currentBaseState.nameHash != pickState && currentBaseState.nameHash != getState)
         {
             anim.SetBool("Pick", true);
             var box = transform.Find("FrontCollider").GetComponent<FrontColliderScript>().TresureBox;
@@ -117,12 +117,14 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
             }
         }
 
+        if (currentBaseState.nameHash != pickState && currentBaseState.nameHash != getState)
+        {
+            // 上下のキー入力でキャラクターを移動させる
+            transform.localPosition += velocity * Time.fixedDeltaTime;
 
-        // 上下のキー入力でキャラクターを移動させる
-        transform.localPosition += velocity * Time.fixedDeltaTime;
-
-		// 左右のキー入力でキャラクタをY軸で旋回させる
-		transform.Rotate(0, h * rotateSpeed, 0);	
+            // 左右のキー入力でキャラクタをY軸で旋回させる
+            transform.Rotate(0, h * rotateSpeed, 0);
+        }
 	
 
 		// 以下、Animatorの各ステート中での処理
