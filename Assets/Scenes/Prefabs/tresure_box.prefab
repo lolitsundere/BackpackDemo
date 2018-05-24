@@ -90,7 +90,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 97d70fed0b8e1a74d8665e00b50bf7c7, type: 2}
   - {fileID: 2100000, guid: 273dfab5801e17e4fb4b599c2cb1b816, type: 2}
@@ -126,7 +125,6 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: 97d70fed0b8e1a74d8665e00b50bf7c7, type: 2}
   - {fileID: 2100000, guid: 273dfab5801e17e4fb4b599c2cb1b816, type: 2}
@@ -170,13 +168,13 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1462395788473080}
   serializedVersion: 2
-  m_Mass: 50
+  m_Mass: 100
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 122
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!65 &65490607821755840
 BoxCollider:
@@ -219,7 +217,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114716051282747470
 MonoBehaviour:
   m_ObjectHideFlags: 1

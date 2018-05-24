@@ -29,6 +29,7 @@ public class TresureBoxController : MonoBehaviour {
             yield return 0;
         }
         ani.SetBool("Get", true);
+        GameObject.Find("HeadLabel").GetComponent<UILabel>().text = "从宝箱中获得了XX!!";
         isOpen = true;
     }
 }

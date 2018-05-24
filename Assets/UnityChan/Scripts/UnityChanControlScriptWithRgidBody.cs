@@ -13,7 +13,6 @@ using System.Collections;
 
 public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 {
-
 	public float animSpeed = 1.5f;				// アニメーション再生速度設定
 	public float lookSmoother = 3.0f;			// a smoothing setting for camera motion
 	public bool useCurves = true;				// Mecanimでカーブ調整を使うか設定する
@@ -21,6 +20,8 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 	public float useCurvesHeight = 0.5f;		// カーブ補正の有効高さ（地面をすり抜けやすい時には大きくする）
 
     public GameObject TresureBox;
+
+    private GameObject headLabel;
 
 	// 以下キャラクターコントローラ用パラメタ
 	// 前進速度
@@ -67,6 +68,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 		// CapsuleColliderコンポーネントのHeight、Centerの初期値を保存する
 		orgColHight = col.height;
 		orgVectColCenter = col.center;
+        headLabel = GameObject.Find("HeadLabel");
 }
 	
 	
@@ -97,7 +99,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 		if (Input.GetButtonDown("Jump")) {	// スペースキーを入力したら
 
 			//アニメーションのステートがLocomotionの最中のみジャンプできる
-			if (currentBaseState.nameHash == locoState){
+			if (currentBaseState.fullPathHash == locoState){
 				//ステート遷移中でなかったらジャンプできる
 				if(!anim.IsInTransition(0))
 				{
@@ -107,7 +109,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 			}
 		}
 
-        if (Input.GetKeyDown(KeyCode.C) && currentBaseState.nameHash != pickState && currentBaseState.nameHash != getState)
+        if (Input.GetKeyDown(KeyCode.C) && currentBaseState.fullPathHash != pickState && currentBaseState.fullPathHash != getState)
         {
             anim.SetBool("Pick", true);
             var box = transform.Find("FrontCollider").GetComponent<FrontColliderScript>().TresureBox;
@@ -117,7 +119,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
             }
         }
 
-        if (currentBaseState.nameHash != pickState && currentBaseState.nameHash != getState)
+        if (currentBaseState.fullPathHash != pickState && currentBaseState.fullPathHash != getState)
         {
             // 上下のキー入力でキャラクターを移動させる
             transform.localPosition += velocity * Time.fixedDeltaTime;
@@ -130,7 +132,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 		// 以下、Animatorの各ステート中での処理
 		// Locomotion中
 		// 現在のベースレイヤーがlocoStateの時
-		if (currentBaseState.nameHash == locoState){
+		if (currentBaseState.fullPathHash == locoState){
 			//カーブでコライダ調整をしている時は、念のためにリセットする
 			if(useCurves){
 				resetCollider();
@@ -138,7 +140,7 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 		}
 		// JUMP中の処理
 		// 現在のベースレイヤーがjumpStateの時
-		else if(currentBaseState.nameHash == jumpState)
+		else if(currentBaseState.fullPathHash == jumpState)
 		{
 			cameraObject.SendMessage("setCameraPositionJumpView");	// ジャンプ中のカメラに変更
 			// ステートがトランジション中でない場合
@@ -179,20 +181,25 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
         }
 		// IDLE中の処理
 		// 現在のベースレイヤーがidleStateの時
-		else if (currentBaseState.nameHash == idleState)
+		else if (currentBaseState.fullPathHash == idleState)
 		{
-			//カーブでコライダ調整をしている時は、念のためにリセットする
-			if(useCurves){
+            //カーブでコライダ調整をしている時は、念のためにリセットする
+            if (useCurves){
 				resetCollider();
 			}
 			// スペースキーを入力したらRest状態になる
 			if (Input.GetButtonDown("Jump")) {
 				anim.SetBool("Rest", true);
 			}
+
+            if (!anim.IsInTransition(0))
+            {
+                headLabel.GetComponent<UILabel>().text = "";
+            }
 		}
 		// REST中の処理
 		// 現在のベースレイヤーがrestStateの時
-		else if (currentBaseState.nameHash == restState)
+		else if (currentBaseState.fullPathHash == restState)
 		{
 			//cameraObject.SendMessage("setCameraPositionFrontView");		// カメラを正面に切り替える
 			// ステートが遷移中でない場合、Rest bool値をリセットする（ループしないようにする）
@@ -201,14 +208,14 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
 				anim.SetBool("Rest", false);
 			}
 		}
-        else if (currentBaseState.nameHash == pickState)
+        else if (currentBaseState.fullPathHash == pickState)
         {
             if (!anim.IsInTransition(0))
             {
                 anim.SetBool("Pick", false);
             }
         }
-        else if (currentBaseState.nameHash == getState)
+        else if (currentBaseState.fullPathHash == getState)
         {
             if (!anim.IsInTransition(0))
             {
