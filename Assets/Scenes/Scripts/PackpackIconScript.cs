@@ -26,5 +26,6 @@ public class PackpackIconScript : MonoBehaviour
     public void TurnBackpack()
     {
         backpackContainer.SetActive(!backpackContainer.activeSelf);
+        SlotManager.SetEquipments();
     }
 }

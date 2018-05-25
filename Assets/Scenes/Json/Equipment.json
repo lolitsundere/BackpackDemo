@@ -1,0 +1,346 @@
+﻿{
+    "items": [
+        {
+	    "id":0,
+            "name": "金玉腰带",
+            "hp": 120,
+            "defense": 100,
+            "atk": 45,
+            "describe": "很拉风的腰带",
+            "sprite_Name": "Belt01"
+        },
+        {
+	"id":1,
+            "name": "无极腰带",
+            "hp": 135,
+            "defense": 95,
+            "atk": 60,
+            "describe": "很能打的腰带",
+            "sprite_Name": "Belt02"
+        },
+        {
+	"id":2,
+            "name": "紫金腰带",
+            "hp": 150,
+            "defense": 90,
+            "atk": 35,
+            "describe": "很肉的腰带",
+            "sprite_Name": "Belt03"
+        },
+        {
+	"id":3,
+            "name": "泰坦腰带",
+            "hp": 120,
+            "defense": 110,
+            "atk": 40,
+            "describe": "打不烂的腰带",
+            "sprite_Name": "Belt04"
+        },
+        {
+	"id":4,
+            "name": "布衣",
+            "hp": 180,
+            "defense": 120,
+            "atk": 15,
+            "describe": "用布做的衣服",
+            "sprite_Name": "Cloth01"
+        },
+        {
+	"id":5,
+            "name": "红魔皮衣",
+            "hp": 190,
+            "defense": 120,
+            "atk": 25,
+            "describe": "攻击不低的皮衣",
+            "sprite_Name": "Cloth02"
+        },
+        {
+	"id":6,
+            "name": "青天战甲",
+            "hp": 200,
+            "defense": 140,
+            "atk": 20,
+            "describe": "据说是神仙穿的衣服",
+            "sprite_Name": "Cloth03"
+        },
+        {
+	"id":7,
+            "name": "钢铁机甲",
+            "hp": 210,
+            "defense": 135,
+            "atk": 30,
+            "describe": "钢铁侠粑粑的战甲，NB",
+            "sprite_Name": "Cloth04"
+        },
+        {
+	"id":8,
+            "name": "布护腕",
+            "hp": 70,
+            "defense": 40,
+            "atk": 70,
+            "describe": "很低级的护腕",
+            "sprite_Name": "Cuff01"
+        },
+        {
+	"id":9,
+            "name": "中级护腕",
+            "hp": 75,
+            "defense": 40,
+            "atk": 75,
+            "describe": "比布护腕好一丢丢",
+            "sprite_Name": "Cuff02"
+        },
+        {
+	"id":10,
+            "name": "高级护腕",
+            "hp": 80,
+            "defense": 60,
+            "atk": 80,
+            "describe": "高等级，你懂得",
+            "sprite_Name": "Cuff03"
+        },
+        {
+	"id":11,
+            "name": "史诗护腕",
+            "hp": 90,
+            "defense": 55,
+            "atk": 85,
+            "describe": "史诗级的装备！！",
+            "sprite_Name": "Cuff04"
+        },
+        {
+	"id":12,
+            "name": "布帽",
+            "hp": 75,
+            "defense": 60,
+            "atk": 60,
+            "describe": "布料做的帽子，材质一般",
+            "sprite_Name": "Hat01"
+        },
+        {
+	"id":13,
+            "name": "皮帽",
+            "hp": 80,
+            "defense": 75,
+            "atk": 65,
+            "describe": "皮制帽，能抵御风寒",
+            "sprite_Name": "Hat02"
+        },
+       {
+	"id":14,
+            "name": "将军帽",
+            "hp": 90,
+            "defense": 80,
+            "atk": 75,
+            "describe": "传说中花木兰将军的帽子",
+            "sprite_Name": "Hat03"
+        },
+        {
+	"id":15,
+            "name": "盘龙戒",
+            "hp": 40,
+            "defense": 35,
+            "atk": 110,
+            "describe": "传说中的装备，得此戒者得天下",
+            "sprite_Name": "Ring01"
+        },
+        {
+	"id":16,
+            "name": "玉戒",
+            "hp": 40,
+            "defense": 20,
+            "atk": 95,
+            "describe": "多为把玩观赏之用",
+            "sprite_Name": "Ring02"
+        },
+        {
+	"id":17,
+            "name": "蓝火戒",
+            "hp": 35,
+            "defense": 25,
+            "atk": 100,
+            "describe": "冒着蓝火，哒哒哒。。。",
+            "sprite_Name": "Ring03"
+        },
+        {
+	"id":18,
+            "name": "紫金戒",
+            "hp": 30,
+            "defense": 30,
+            "atk": 90,
+            "describe": "华山派掌门之戒",
+            "sprite_Name": "Ring04"
+        },
+        {
+	"id":19,
+            "name": "金箍戒",
+            "hp": 50,
+            "defense": 40,
+            "atk": 115,
+            "describe": "相传为大圣头上金箍所化",
+            "sprite_Name": "Ring05"
+        },
+        {
+	"id":20,
+            "name": "青玉戒",
+            "hp": 35,
+            "defense": 30,
+            "atk": 105,
+            "describe": "青天白玉戒",
+            "sprite_Name": "Ring06"
+        },
+        {
+	"id":21,
+            "name": "布鞋",
+            "hp": 120,
+            "defense": 90,
+            "atk": 70,
+            "describe": "很一般的鞋子",
+            "sprite_Name": "Shose01"
+        },
+        {
+	"id":22,
+            "name": "跑鞋",
+            "hp": 135,
+            "defense": 100,
+            "atk": 75,
+            "describe": "特步，飞一般的感觉",
+            "sprite_Name": "Shose02"
+        },
+        {
+	"id":23,
+            "name": "飞鞋",
+            "hp": 150,
+            "defense": 110,
+            "atk": 70,
+            "describe": "Nike飞鞋，你值得拥有",
+            "sprite_Name": "Shose03"
+        },
+        {
+	"id":24,
+            "name": "青冈剑",
+            "hp": 100,
+            "defense": 20,
+            "atk": 180,
+            "describe": "青冈岩打造皆属精品",
+            "sprite_Name": "Weapon01"
+        },
+        {
+	"id":25,
+            "name": "青玉剑",
+            "hp": 125,
+            "defense": 35,
+            "atk": 200,
+            "describe": "手感温顺，润滑",
+            "sprite_Name": "Weapon02"
+        },
+        {
+	"id":26,
+            "name": "倚天剑",
+            "hp": 150,
+            "defense": 55,
+            "atk": 280,
+            "describe": "老尼姑，拿命来",
+            "sprite_Name": "Weapon03"
+        },
+        {
+	"id":27,
+            "name": "精致短剑",
+            "hp": 120,
+            "defense": 35,
+            "atk": 230,
+            "describe": "刺客系短剑，出剑极快",
+            "sprite_Name": "Weapon04"
+        },
+        {
+	"id":28,
+            "name": "屠龙刀",
+            "hp": 160,
+            "defense": 70,
+            "atk": 300,
+            "describe": "狮王谢逊之宝刀",
+            "sprite_Name": "Weapon05"
+        },
+        {
+	"id":29,
+            "name": "流星小锤",
+            "hp": 100,
+            "defense": 30,
+            "atk": 270,
+            "describe": "小锤四十，大锤八十",
+            "sprite_Name": "Weapon06"
+        },
+        {
+	"id":30,
+            "name": "流星大锤",
+            "hp": 120,
+            "defense": 40,
+            "atk": 290,
+            "describe": "小锤四十，大锤八十",
+            "sprite_Name": "Weapon07"
+        },
+        {
+	"id":31,
+            "name": "双龙魔影剑",
+            "hp": 140,
+            "defense": 65,
+            "atk": 260,
+            "describe": "Dnf剑魂神器",
+            "sprite_Name": "Weapon08"
+        },
+        {
+	"id":32,
+            "name": "螳螂爪",
+            "hp": 160,
+            "defense": 55,
+            "atk": 245,
+            "describe": "很像螳螂的爪子",
+            "sprite_Name": "Weapon09"
+        },
+        {
+	"id":33,
+            "name": "圆月弯小刀",
+            "hp": 130,
+            "defense": 60,
+            "atk": 210,
+            "describe": "柳叶弯弯",
+            "sprite_Name": "Weapon10"
+        },
+        {
+	"id":34,
+            "name": "二郎戟",
+            "hp": 120,
+            "defense": 65,
+            "atk": 300,
+            "describe": "二郎神本名武器",
+            "sprite_Name": "Weapon11"
+        },
+        {
+	"id":35,
+            "name": "霸王爪",
+            "hp": 155,
+            "defense": 40,
+            "atk": 210,
+            "describe": "霸王项羽的手套所铸",
+            "sprite_Name": "Weapon12"
+        },
+        {
+	"id":36,
+            "name": "剑之剑",
+            "hp": 150,
+            "defense": 65,
+            "atk": 290,
+            "describe": "仙剑之王",
+            "sprite_Name": "Weapon13"
+        },
+        {
+	"id":37,
+            "name": "圆月弯大刀",
+            "hp": 135,
+            "defense": 75,
+            "atk": 320,
+            "describe": "Bug级的弯刀",
+            "sprite_Name": "Weapon14"
+        }
+    ]
+}
