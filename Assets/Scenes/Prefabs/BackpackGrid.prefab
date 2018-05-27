@@ -133,7 +133,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114503590123914894, guid: bdd0a98069604df49b5010e62fcb035d, type: 2}
-  mSpriteName: BackpackUI1
+  mSpriteName: ui_b_01
   mFillCenter: 1
 --- !u!114 &114358706190158784
 MonoBehaviour:
@@ -183,7 +183,7 @@ MonoBehaviour:
   bottomType: 1
   topType: 1
   mAtlas: {fileID: 114503590123914894, guid: bdd0a98069604df49b5010e62fcb035d, type: 2}
-  mSpriteName: Empty
+  mSpriteName: ui_c_04
   mFillCenter: 1
 --- !u!114 &114434265556237478
 MonoBehaviour:
@@ -217,7 +217,11 @@ MonoBehaviour:
     mMethodName: Unfocus
     mParameters: []
     oneShot: 0
-  onPress: []
+  onPress:
+  - mTarget: {fileID: 114434265556237478}
+    mMethodName: OnPress
+    mParameters: []
+    oneShot: 0
   onRelease: []
   onSelect: []
   onDeselect: []

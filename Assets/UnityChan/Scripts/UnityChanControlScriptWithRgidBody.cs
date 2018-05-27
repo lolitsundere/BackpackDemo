@@ -229,7 +229,12 @@ public class UnityChanControlScriptWithRgidBody : MonoBehaviour
         if (GUILayout.Button("生成宝箱"))
         {
             var go = Instantiate(TresureBox);
-            go.transform.position = new Vector3(transform.position.x + Random.value * 10 - 5, 50f, transform.position.z + Random.value * 10 - 5);
+            go.transform.position = new Vector3(transform.position.x + Random.value * 30 - 15, 50f, transform.position.z + Random.value * 30 - 15);
+        }
+            
+        if (GUILayout.Button("生成装备"))
+        {
+            GameObject.Find("BackpackButton").GetComponent<PackpackIconScript>().BackpackContainer.GetComponent<SlotManager>().AddEquipment(EquipmentManager.GetRandomEquipment());
         }
     }
 

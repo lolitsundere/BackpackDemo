@@ -34,7 +34,7 @@ public class EquipmentManager : MonoBehaviour
     }
 
     [Serializable]
-	public class Equipment
+	public class Equipment : IComparable
     {
         public int id;
         public int hp;
@@ -43,5 +43,18 @@ public class EquipmentManager : MonoBehaviour
         public string name;
         public string describe;
         public string sprite_Name;
+
+        public int CompareItem;
+
+        public int CompareTo(object obj)
+        {
+            var e = obj as Equipment;
+            return -CompareItem.CompareTo(e.CompareItem);
+        }
+
+        public override string ToString()
+        {
+            return String.Format("{0}\n{1}\n生命 +{2}\n攻击 +{3}\n防御 +{4}",name,describe,hp,atk,defense);
+        }
     }
 }

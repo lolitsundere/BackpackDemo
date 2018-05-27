@@ -7,17 +7,20 @@ public class TresureBoxController : MonoBehaviour {
     private Transform top;
     private bool isOpen;
     private EquipmentManager.Equipment treasure;
+    private GameObject BackpackContainer;
 
     void Start()
     {
         top = transform.GetChild(0);
         treasure = EquipmentManager.GetRandomEquipment();
+        BackpackContainer = GameObject.Find("BackpackButton").GetComponent<PackpackIconScript>().BackpackContainer;
     }
 
     public void OpenBox(Animator ani)
     {
         if (!isOpen)
         {
+            isOpen = true;
             StartCoroutine("Open", ani);
         }
     }
@@ -32,7 +35,6 @@ public class TresureBoxController : MonoBehaviour {
         }
         ani.SetBool("Get", true);
         GameObject.Find("HeadLabel").GetComponent<UILabel>().text = string.Format("从宝箱中获得了{0}!!", treasure.name);
-        SlotManager.AddEquipment(treasure); 
-        isOpen = true;
+        BackpackContainer.GetComponent<SlotManager>().AddEquipment(treasure);
     }
 }

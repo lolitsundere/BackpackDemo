@@ -4,50 +4,90 @@ using UnityEngine;
 
 public class SlotManager : MonoBehaviour
 {
-    private static Dictionary<EquipmentManager.Equipment, int> equipmentDic;
-    private static HashSet<int> indexSet;
-    private static int nextItemIndex;
-    private static Transform t;
-	// Use this for initialization
-	void Start ()
+    private Dictionary<int,EquipmentManager.Equipment> equipmentDic;
+    private int nextItemIndex;
+    public delegate int SortDelegate(EquipmentManager.Equipment e);
+
+    public int Page;
+
+    void Awake ()
     {
-        equipmentDic = new Dictionary<EquipmentManager.Equipment, int>();
-        indexSet = new HashSet<int>();
+        equipmentDic = new Dictionary<int, EquipmentManager.Equipment>();
         nextItemIndex = 0;
-        t = transform;
-	}
-
-    public static void AddEquipment(EquipmentManager.Equipment equipment)
-    {
-        equipmentDic.Add(equipment, nextItemIndex);
-        indexSet.Add(nextItemIndex);
-        while (indexSet.Contains(++nextItemIndex)) ;
-
+        Page = 0;
     }
 
-    public static void SetEquipments()
+    public void AddEquipment(EquipmentManager.Equipment equipment)
     {
-        foreach (var item in equipmentDic)
+        equipmentDic.Add(nextItemIndex, equipment);
+        SetNextItemIndex();
+        SetEquipments();
+    }
+
+    public void RemoveEquipment(int i)
+    {
+        equipmentDic.Remove(i + Page * 24);
+        SetNextItemIndex();
+        SetEquipments();
+    }
+
+    public void SetEquipments()
+    {
+        for (int i = 0; i < transform.childCount; i++)
         {
-            t.GetChild(item.Value).GetComponent<BackpackGridScript>().SetEquipment(item.Key);
+            if (equipmentDic.ContainsKey(i + Page * 24))
+            {
+                transform.GetChild(i).GetComponent<BackpackGridScript>().SetEquipment(equipmentDic[i + Page * 24]);
+            }
+            else
+            {
+                transform.GetChild(i).GetComponent<BackpackGridScript>().SetEquipment(null);
+            }
         }
     }
 
-    public static void SwapEquipment(EquipmentManager.Equipment e1, EquipmentManager.Equipment e2, GameObject t2)
+    private void SetNextItemIndex()
     {
-        if (e2 == null)
+        nextItemIndex = -1;
+        while (equipmentDic.ContainsKey(++nextItemIndex)) ;
+    }
+
+    public void SwapEquipment(int i1, int i2)
+    {
+        if (equipmentDic.ContainsKey(i1 + Page * 24))
         {
-            int i = 0;
-            while (!t.GetChild(i++).Equals(t2)) ;
-            indexSet.Remove(equipmentDic[e1]);
-            equipmentDic[e1] = i;
-            indexSet.Add(i);
+            var temp = equipmentDic[i1 + Page * 24];
+            equipmentDic[i1 + Page * 24] = equipmentDic[i2 + Page * 24];
+            equipmentDic[i2 + Page * 24] = temp;
         }
         else
         {
-            int temp = equipmentDic[e1];
-            equipmentDic[e1] = equipmentDic[e2];
-            equipmentDic[e2] = temp;
+            equipmentDic.Add(i1, equipmentDic[i2 + Page * 24]);
+            equipmentDic.Remove(i2 + Page * 24);
+            SetNextItemIndex();
         }
+        SetEquipments();
+    }
+
+    public void Sort(SortDelegate d)
+    {
+        List<EquipmentManager.Equipment> list = new List<EquipmentManager.Equipment>();
+        foreach (var item in equipmentDic)
+        {
+            item.Value.CompareItem = d(item.Value);
+            list.Add(item.Value);
+        }
+
+        list.Sort();
+
+        equipmentDic = new Dictionary<int, EquipmentManager.Equipment>();
+        int i = 0;
+        foreach (var item in list)
+        {
+            equipmentDic.Add(i++, item);
+        }
+        
+        SetNextItemIndex();
+        SetEquipments();
     }
 }
