@@ -13,6 +13,7 @@ public class BackpackGridScript : MonoBehaviour
     UISprite item;
     GameObject BackpackIcon;
 
+    private bool click;
     private static GameObject DraggingItem;
 
     private void Awake()
@@ -33,10 +34,18 @@ public class BackpackGridScript : MonoBehaviour
         if (equipment != null)
         {
             item.spriteName = equipment.sprite_Name;
+            if (transform.name.StartsWith("EquipmentGridItem"))
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+            }
         }
         else
         {
             item.spriteName = "ui_c_04";
+            if (transform.name.StartsWith("EquipmentGridItem"))
+            {
+                transform.GetChild(1).gameObject.SetActive(true);
+            }
         }
     }
 
@@ -48,6 +57,23 @@ public class BackpackGridScript : MonoBehaviour
             BackpackIcon.GetComponent<PackpackIconScript>().DescriptionLabel.transform.GetChild(0).GetComponent<UILabel>().text = equipment.ToString();
             BackpackIcon.GetComponent<PackpackIconScript>().DescriptionLabel.SetActive(true);
         }
+    }
+
+    public void OnDoubleClick()
+    {
+        if (click)
+        {
+            if (!transform.name.StartsWith("EquipmentGridItem"))
+            {
+                transform.parent.GetComponent<SlotManager>().Equip(transform.GetSiblingIndex());
+            }
+        }
+        if (transform.name.StartsWith("EquipmentGridItem"))
+        {
+            BackpackIcon.GetComponent<PackpackIconScript>().BackpackContainer.GetComponent<SlotManager>().Unequip(transform.GetSiblingIndex());
+        }
+
+        click = !click;
     }
 
     public void Unfocus()
@@ -114,14 +140,28 @@ public class BackpackGridScript : MonoBehaviour
                 catch { }
             }
 
-
             if (DraggingItem != null && ItemPointerOn != null && ItemPointerOn != DraggingItem)
             {
-                transform.parent.GetComponent<SlotManager>().SwapEquipment(ItemPointerOn.parent.transform.GetSiblingIndex(), DraggingItem.transform.GetSiblingIndex());
+                if (ItemPointerOn.transform.parent.name.StartsWith("EquipmentGridItem") && !DraggingItem.transform.name.StartsWith("EquipmentGridItem"))
+                {
+                    transform.parent.GetComponent<SlotManager>().EquipEquipment(ItemPointerOn.parent.transform.GetSiblingIndex(), DraggingItem.transform.GetSiblingIndex());
+                }
+                else if(!ItemPointerOn.transform.parent.name.StartsWith("EquipmentGridItem") && DraggingItem.transform.name.StartsWith("EquipmentGridItem"))
+                {
+                    BackpackIcon.GetComponent<PackpackIconScript>().BackpackContainer.GetComponent<SlotManager>().UnequipEquipment(ItemPointerOn.parent.transform.GetSiblingIndex(), DraggingItem.transform.GetSiblingIndex());
+                }
+                else if(!ItemPointerOn.transform.parent.name.StartsWith("EquipmentGridItem") && !DraggingItem.transform.name.StartsWith("EquipmentGridItem"))
+                {
+                    transform.parent.GetComponent<SlotManager>().SwapEquipment(ItemPointerOn.parent.transform.GetSiblingIndex(), DraggingItem.transform.GetSiblingIndex());
+                }
+                else
+                {
+                    BackpackIcon.GetComponent<PackpackIconScript>().BackpackContainer.GetComponent<SlotManager>().SetEquipments();
+                }
             }
             else if (DraggingItem != null)
             {
-                transform.parent.GetComponent<SlotManager>().SetEquipments();
+                BackpackIcon.GetComponent<PackpackIconScript>().BackpackContainer.GetComponent<SlotManager>().SetEquipments();
             }
             DraggingItem = null;
         }

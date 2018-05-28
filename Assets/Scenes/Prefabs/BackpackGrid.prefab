@@ -226,7 +226,11 @@ MonoBehaviour:
   onSelect: []
   onDeselect: []
   onClick: []
-  onDoubleClick: []
+  onDoubleClick:
+  - mTarget: {fileID: 114434265556237478}
+    mMethodName: OnDoubleClick
+    mParameters: []
+    oneShot: 0
   onDragStart: []
   onDragEnd: []
   onDragOver:

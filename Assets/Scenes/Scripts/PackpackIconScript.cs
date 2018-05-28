@@ -7,11 +7,13 @@ public class PackpackIconScript : MonoBehaviour
     TweenScale tweenScale;
     public GameObject BackpackContainer;
     public GameObject DescriptionLabel;
+    public GameObject StatesInfo;
     private GameObject ButtonContainer;
     private GameObject TrashCan;
     private GameObject Left;
     private GameObject Right;
     private GameObject Page;
+    private GameObject EquipmentGrid;
 
 
     private void Start()
@@ -23,7 +25,9 @@ public class PackpackIconScript : MonoBehaviour
         Left = GameObject.Find("Left");
         Right = GameObject.Find("Right");
         Page = GameObject.Find("Page");
+        StatesInfo = GameObject.Find("StatesInfo");
         DescriptionLabel = GameObject.Find("DescriptionLabel");
+        EquipmentGrid = GameObject.Find("EquipmentGrid");
         Left.GetComponent<UIButton>().isEnabled = false;
 
         BackpackContainer.SetActive(false);
@@ -33,6 +37,8 @@ public class PackpackIconScript : MonoBehaviour
         Right.SetActive(false);
         Page.SetActive(false);
         DescriptionLabel.SetActive(false);
+        EquipmentGrid.SetActive(false);
+        StatesInfo.SetActive(false);
     }
 
     public void PlayTween()
@@ -83,6 +89,9 @@ public class PackpackIconScript : MonoBehaviour
         Left.SetActive(!Left.activeSelf);
         Right.SetActive(!Right.activeSelf);
         Page.SetActive(!Page.activeSelf);
+        Right.SetActive(!Right.activeSelf);
+        StatesInfo.SetActive(!StatesInfo.activeSelf);
+        EquipmentGrid.SetActive(!EquipmentGrid.activeSelf);
         BackpackContainer.GetComponent<SlotManager>().SetEquipments();
     }
 }
